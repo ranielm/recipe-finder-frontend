@@ -1,4 +1,6 @@
 {
   "title": "Recipes",
-  "action": "Favorite Recipe"
+  "action": "Favorite Recipe",
+  "enter_ingredients": "Enter ingredients",
+  "placeholder_ingredients": "garlic, broccoli"
 }

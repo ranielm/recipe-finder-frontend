@@ -10,11 +10,8 @@ const RecipeSearch: FC<IRecipeSearchProps> = ({ onSearch }) => {
 
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
-      if (input.trim()) {
-        const searchTerms = input
-          .toLowerCase()
-          .split(',')
-          .map((s) => s.trim());
+      const searchTerms = input.trim();
+      if (searchTerms) {
         fetchRecipes(searchTerms)
           .then((recipes) => {
             onSearch(recipes);
@@ -32,12 +29,12 @@ const RecipeSearch: FC<IRecipeSearchProps> = ({ onSearch }) => {
 
   return (
     <TextField
-      label={t('enter_ingredients')}
+      label={t('home.enter_ingredients')}
       variant="outlined"
       fullWidth
       value={input}
       onChange={(e) => setInput(e.target.value)}
-      placeholder={t('placeholder_ingredients')}
+      placeholder={t('home.placeholder_ingredients')}
     />
   );
 };
