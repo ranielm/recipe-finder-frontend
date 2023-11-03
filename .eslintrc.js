@@ -23,6 +23,5 @@ module.exports = {
     ],
     rules: {
         'prettier/prettier': 'error',
-        // Adicione regras adicionais aqui
     },
 };

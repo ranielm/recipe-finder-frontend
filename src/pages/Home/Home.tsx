@@ -1,26 +1,20 @@
-import { Container, Link, Stack, Typography } from '@mui/material';
-import { Trans, useTranslation } from 'react-i18next';
+import { FC, useState } from 'react';
+import { Container, Typography } from '@mui/material';
+import { IRecipe } from '../../common/types/recipe';
+import { Trans } from 'react-i18next';
+import RecipeResults from '../../components/RecipeResults';
+import RecipeSearch from '../../components/RecipeSearch';
 
-const Home = () => {
-  const { t } = useTranslation();
+const Home: FC = () => {
+  const [recipes, setRecipes] = useState<IRecipe[]>([]);
 
   return (
-    <Container>
-      <Stack alignItems="center">
-        <Stack direction="column" alignItems="center">
-          <Typography>
-            <Trans>home.title</Trans>
-          </Typography>
-          <Link
-            underline="always"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {t('home.action')}
-          </Link>
-        </Stack>
-      </Stack>
+    <Container maxWidth="sm">
+      <Typography variant="h2" gutterBottom>
+        <Trans>home.title</Trans> 
+      </Typography>
+      <RecipeSearch onSearch={setRecipes} />
+      <RecipeResults recipes={recipes} />
     </Container>
   );
 };

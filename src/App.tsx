@@ -1,16 +1,8 @@
-import { ComponentType, ElementType, FC } from 'react';
-import {
-  BrowserRouter,
-  BrowserRouterProps,
-  Route,
-  Routes,
-} from 'react-router-dom';
+import { FC } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import routes from './routes';
 import './common/i18n';
-
-interface IAppProps {
-  Router?: ComponentType<BrowserRouterProps> | ElementType;
-}
+import { IAppProps } from './App.types';
 
 const App: FC<IAppProps> = ({ Router = BrowserRouter }) => {
   return (
