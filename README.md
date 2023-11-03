@@ -72,3 +72,6 @@ npm run build
 ```
 The build artifacts will be stored in the dist/ directory.
 
+## Development Timeline
+
+This project was initiated and brought to its current state as part of a 4-hour coding challenge. The core functionalities were implemented within this timeframe. However, for the complete and polished version of the application, including additional features and refinements, please refer to the [fork of this repository](#) where the development is actively continuing.
