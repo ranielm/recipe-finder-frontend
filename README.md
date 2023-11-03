@@ -73,5 +73,6 @@ npm run build
 The build artifacts will be stored in the dist/ directory.
 
 ## Development Timeline
+## Development Timeline
 
-This project was initiated and brought to its current state as part of a 4-hour coding challenge. The core functionalities were implemented within this timeframe. However, for the complete and polished version of the application, including additional features and refinements, please refer to the [fork of this repository](#) where the development is actively continuing.
+This project was initiated and advanced to its current state as a result of a 4-hour coding challenge, during which the fundamental functionalities were established. Nonetheless, it is important to note that this version serves primarily as a prototype. The full-fledged application, with comprehensive features and enhancements, will be developed in a new project, separate from this initial challenge. Updates and progress on the new project will be shared as they occur.
