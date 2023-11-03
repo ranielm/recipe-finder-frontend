@@ -1,7 +1,7 @@
-import { lazy } from 'react'
-import { RoutesEnum } from 'common/constants/routes'
+import { lazy } from 'react';
+import { RoutesEnum } from '../common/constants/routes';
 
-const Home = lazy(() => import('pages/Home'))
+const Home = lazy(() => import('../pages/Home'));
 
 const app = [
   {
@@ -9,6 +9,6 @@ const app = [
     component: Home,
     exact: true,
   },
-]
+];
 
-export default app
+export default app;

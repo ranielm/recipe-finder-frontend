@@ -13,7 +13,6 @@ const Home = () => {
           </Typography>
           <Link
             underline="always"
-            variant="body1"
             href="https://reactjs.org"
             target="_blank"
             rel="noopener noreferrer"
