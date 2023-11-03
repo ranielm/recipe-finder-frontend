@@ -1,27 +1,74 @@
-# React + TypeScript + Vite
+# Recipe Finder Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is the frontend for the Recipe Finder application, a React-based web application that allows users to search for recipes based on the ingredients they have.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Search for recipes by ingredients.
+- Responsive design for desktop and mobile devices.
+- Internationalization with support for multiple languages.
+- Dark and light mode toggling.
 
-## Expanding the ESLint configuration
+## Prerequisites
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Before running the project, make sure you have the following installed:
+- Node.js (Preferably the latest LTS version)
+- npm or Yarn (for managing dependencies)
 
-- Configure the top-level `parserOptions` property like this:
+## Getting Started
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+To get started with the project, follow these steps:
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/your-username/recipe-finder-frontend.git
+cd recipe-finder-frontend
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Install the dependencies:
+
+```bash
+npm install
+# or
+yarn
+```
+
+## Set up the environment variables:
+
+Copy the .env.sample file to a new file named .env and update the variables to match your local setup.
+
+```bash
+cp .env.sample .env
+```
+
+Edit the .env file with the appropriate values for the environment variables.
+
+## Start the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+The application should now be running on [http://localhost:5173](http://localhost:5173).
+
+## Scripts
+
+- `npm run dev` - Start the development server.
+- `npm run build` - Build the application for production.
+- `npm run lint` - Run ESLint to check for linting errors.
+- `npm run preview` - Preview the production build.
+- `npm run lint:fix` - Automatically fix linting issues.
+- `npm run format` - Format your code using Prettier.
+
+## Building for Production
+
+To build the application for production, run:
+
+```bash
+npm run build
+```
+The build artifacts will be stored in the dist/ directory.
+
