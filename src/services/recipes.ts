@@ -1,10 +1,8 @@
-import axios from 'axios';
-
-const apiBaseUrl = import.meta.env.VITE_API_URL;
+import api from './api';
 
 export const fetchRecipes = async (ingredients: string) => {
   try {
-    const response = await axios.get(`${apiBaseUrl}/recipes/search`, {
+    const response = await api.get('/recipes/search', {
       params: { ingredients },
     });
     return response.data;

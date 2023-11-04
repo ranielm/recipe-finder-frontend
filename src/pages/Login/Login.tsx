@@ -1,31 +1,28 @@
-import { useState, FormEvent, FC } from 'react';
+import { FC } from 'react';
+import { useForm } from 'react-hook-form';
 import { TextField, Button, Container, Typography, Box } from '@mui/material';
+import { loginService } from '../../services/authService';
+import { IFormInput } from './Login.types';
+import { useNavigate } from 'react-router-dom';
 
 const Login: FC = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const navigate = useNavigate();
 
-  const isValidEmail = (email: string) => {
-    const re = /\S+@\S+\.\S+/;
-    return re.test(email);
-  };
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IFormInput>();
 
-  const handleSubmit = (event: FormEvent) => {
-    event.preventDefault();
-    setError('');
+  const onSubmit = async (data: IFormInput) => {
+    const { email, password } = data;
 
-    if (!isValidEmail(email)) {
-      setError('Please enter a valid email address.');
-      return;
+    try {
+      await loginService(email, password);
+      navigate('/home');
+    } catch (error) {
+      console.error('Falha no login', error);
     }
-
-    if (password.length < 6) {
-      setError('Password should be at least 6 characters long.');
-      return;
-    }
-
-    console.log('Submitted', email, password);
   };
 
   return (
@@ -41,34 +38,47 @@ const Login: FC = () => {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+        <Box
+          component="form"
+          onSubmit={handleSubmit(onSubmit)}
+          noValidate
+          sx={{ mt: 1 }}
+        >
           <TextField
             margin="normal"
             required
             fullWidth
             id="email"
             label="Email Address"
-            name="email"
             autoComplete="email"
             autoFocus
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            error={error.includes('email')}
-            helperText={error.includes('email') ? error : ''}
+            {...register('email', {
+              required: 'Email is required',
+              pattern: {
+                value: /\S+@\S+\.\S+/,
+                message: 'Invalid email address',
+              },
+            })}
+            error={!!errors.email}
+            helperText={errors.email?.message}
           />
           <TextField
             margin="normal"
             required
             fullWidth
-            name="password"
             label="Password"
             type="password"
             id="password"
             autoComplete="current-password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            error={error.includes('password')}
-            helperText={error.includes('password') ? error : ''}
+            {...register('password', {
+              required: 'Password is required',
+              minLength: {
+                value: 6,
+                message: 'Password must be at least 6 characters long',
+              },
+            })}
+            error={!!errors.password}
+            helperText={errors.password?.message}
           />
           <Button
             type="submit"
@@ -79,11 +89,6 @@ const Login: FC = () => {
             Sign In
           </Button>
         </Box>
-        {error && (
-          <Typography color="error" variant="body2">
-            {error}
-          </Typography>
-        )}
       </Box>
     </Container>
   );
