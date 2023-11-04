@@ -1,7 +1,6 @@
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-
-export const apiBaseUrl = import.meta.env.VITE_API_URL;
+import { apiBaseUrl } from '../utils/environment';
+import { redirectToLogin } from '../utils/navigationHelper';
 
 const api = axios.create({
   baseURL: apiBaseUrl,
@@ -27,8 +26,7 @@ api.interceptors.response.use(
   (error) => {
     if (error.response.status === 401) {
       localStorage.removeItem('authToken');
-      const navigate = useNavigate();
-      navigate('/');
+      redirectToLogin();
     }
     return Promise.reject(error);
   }

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { ILoginResponse } from '../common/types/user';
-import { apiBaseUrl } from './api';
+import { apiBaseUrl } from '../utils/environment';
 
 export const loginService = async (
   email: string,
