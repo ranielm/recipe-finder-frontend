@@ -6,10 +6,19 @@ const RecipeResults: FC<IRecipeResultsProps> = ({ recipes }) => {
   return (
     <List>
       {recipes.map((recipe) => (
-        <ListItem key={recipe.id}>
+        <ListItem key={recipe.id} alignItems="flex-start">
           <ListItemText
             primary={recipe.title}
-            secondary={recipe.ingredients.join(', ')}
+            secondary={
+              <span>
+                {recipe.recipeIngredients
+                  .map(
+                    (ri) =>
+                      `${ri.quantity} ${ri.measurementUnit} ${ri.ingredient.name}`
+                  )
+                  .join(', ')}
+              </span>
+            }
           />
         </ListItem>
       ))}

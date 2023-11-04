@@ -47,16 +47,16 @@ Edit the .env file with the appropriate values for the environment variables.
 ## Start the development server:
 
 ```bash
-npm run dev
+npm run start
 # or
-yarn dev
+yarn start
 ```
 
 The application should now be running on [http://localhost:5173](http://localhost:5173).
 
 ## Scripts
 
-- `npm run dev` - Start the development server.
+- `npm run start` - Start the development server.
 - `npm run build` - Build the application for production.
 - `npm run lint` - Run ESLint to check for linting errors.
 - `npm run preview` - Preview the production build.
@@ -66,14 +66,10 @@ The application should now be running on [http://localhost:5173](http://localhos
 ## Building for Production
 
 To build the application for production, run:
-
+    
 ```bash
 npm run build
 ```
+
 The build artifacts will be stored in the dist/ directory.
 
-## Development Timeline
-
-This project was initiated and advanced to its current state as a result of a 4-hour coding challenge, during which the fundamental functionalities were established. Nonetheless, it is important to note that this version serves primarily as a prototype. The full-fledged application, with comprehensive features and enhancements, will be developed in a new project, separate from this initial challenge. Updates and progress on the new project will be shared as they occur.
-
-https://github.com/ranielm/recipe-finder-frontend-complete
