@@ -1,27 +1,14 @@
-import { FC, useMemo, useState } from 'react';
+import { FC } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { createTheme, ThemeProvider, CssBaseline } from '@mui/material';
 import routes from './routes';
 import './common/i18n';
 import { IAppProps } from './App.types';
-import { PaletteMode } from '@mui/material';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
+import AppLayout from './containers/AppLayout/AppLayout';
 
 const App: FC<IAppProps> = ({ Router = BrowserRouter }) => {
-  const [mode] = useState<PaletteMode>('dark');
-
-  const theme = useMemo(
-    () =>
-      createTheme({
-        palette: {
-          mode: mode,
-        },
-      }),
-    [mode]
-  );
-
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
+    <AppLayout>
       <Router>
         <Routes>
           {routes.map((route) => (
@@ -31,9 +18,10 @@ const App: FC<IAppProps> = ({ Router = BrowserRouter }) => {
               element={<route.component />}
             />
           ))}
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Router>
-    </ThemeProvider>
+    </AppLayout>
   );
 };
 
