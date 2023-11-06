@@ -1,9 +1,30 @@
 import { FC } from 'react';
 import { useForm } from 'react-hook-form';
-import { TextField, Button, Container, Typography, Box } from '@mui/material';
+import { TextField, Button, Typography, Box, Container } from '@mui/material';
 import { loginService } from '../../services/authService';
 import { IFormInput } from './Login.types';
 import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+
+const FullHeightContainer = styled.div`
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const StyledContainer = styled(Container)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const FormBox = styled(Box)`
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 const Login: FC = () => {
   const navigate = useNavigate();
@@ -26,24 +47,12 @@ const Login: FC = () => {
   };
 
   return (
-    <Container component="main" maxWidth="xs">
-      <Box
-        sx={{
-          marginTop: 8,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-        }}
-      >
+    <FullHeightContainer>
+      <StyledContainer component="main" maxWidth="xs">
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <Box
-          component="form"
-          onSubmit={handleSubmit(onSubmit)}
-          noValidate
-          sx={{ mt: 1 }}
-        >
+        <FormBox component="form" onSubmit={handleSubmit(onSubmit)} noValidate>
           <TextField
             margin="normal"
             required
@@ -88,9 +97,9 @@ const Login: FC = () => {
           >
             Sign In
           </Button>
-        </Box>
-      </Box>
-    </Container>
+        </FormBox>
+      </StyledContainer>
+    </FullHeightContainer>
   );
 };
 

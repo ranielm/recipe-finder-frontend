@@ -4,10 +4,10 @@ import {
   ThemeProvider,
   CssBaseline,
   PaletteMode,
-  Button,
 } from '@mui/material';
 import { IRequireAuthProps } from '../../components/RequireAuth/RequireAuth.types';
 import { createGlobalStyle } from 'styled-components';
+import { Header, StyledButton } from './AppLayout.styled';
 
 const GlobalStyles = createGlobalStyle`
   input:-webkit-autofill {
@@ -36,8 +36,11 @@ const AppLayout: FC<IRequireAuthProps> = ({ children }) => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <GlobalStyles />
-
-      <Button onClick={toggleTheme}>Toggle Theme</Button>
+      <Header>
+        <StyledButton onClick={toggleTheme} variant="text">
+          Toggle Theme
+        </StyledButton>
+      </Header>
       {children}
     </ThemeProvider>
   );
