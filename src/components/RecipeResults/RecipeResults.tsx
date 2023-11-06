@@ -98,7 +98,7 @@ export const RecipeResults: FC<IRecipeResultsProps> = ({ recipes }) => {
                   <CardMedia
                     component="img"
                     height="140"
-                    image={recipe.imageUrl || 'placeholder_image_path.jpg'}
+                    image={recipe.imageUrl || ''}
                     alt={`Image of ${recipe.title}`}
                   />
                 </>

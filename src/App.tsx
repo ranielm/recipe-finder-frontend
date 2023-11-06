@@ -8,8 +8,8 @@ import AppLayout from './containers/AppLayout';
 
 const App: FC<IAppProps> = ({ Router = BrowserRouter }) => {
   return (
-    <AppLayout>
-      <Router>
+    <Router>
+      <AppLayout>
         <Routes>
           {routes.map((route) => (
             <Route
@@ -20,8 +20,8 @@ const App: FC<IAppProps> = ({ Router = BrowserRouter }) => {
           ))}
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
-      </Router>
-    </AppLayout>
+      </AppLayout>
+    </Router>
   );
 };
 

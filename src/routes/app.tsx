@@ -1,11 +1,18 @@
 import { lazy, Suspense } from 'react';
 import { RoutesEnum } from '../common/constants/routes';
 import RequireAuth from '../components/RequireAuth';
+import { Box } from '@mui/material';
 
 const Home = lazy(() => import('../pages/Home'));
 const Login = lazy(() => import('../pages/Login'));
+const Favorites = lazy(() => import('../pages/Favorites'));
 
 const app = [
+  {
+    path: RoutesEnum.LOGIN,
+    component: Login,
+    exact: true,
+  },
   {
     path: RoutesEnum.HOME,
     component: Home,
@@ -13,8 +20,8 @@ const app = [
     protected: true,
   },
   {
-    path: RoutesEnum.LOGIN,
-    component: Login,
+    path: RoutesEnum.FAVORITES,
+    component: Favorites,
     exact: true,
   },
 ];
@@ -25,7 +32,7 @@ const routes = app.map((route) => {
       ...route,
       component: () => (
         <RequireAuth>
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<Box>Loading...</Box>}>
             <route.component />
           </Suspense>
         </RequireAuth>
@@ -35,7 +42,7 @@ const routes = app.map((route) => {
     return {
       ...route,
       component: () => (
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Box>Loading...</Box>}>
           <route.component />
         </Suspense>
       ),
