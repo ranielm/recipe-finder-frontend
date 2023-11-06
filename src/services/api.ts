@@ -24,7 +24,12 @@ api.interceptors.response.use(
     return response;
   },
   (error) => {
-    if (error.response.status === 401) {
+    console.log('🚀 ~ file: api.ts:27 ~ error:', error);
+    console.log(
+      '🚀 ~ file: api.ts:29 ~ error.response.status:',
+      error.response.status
+    );
+    if (error.response.status === 401 || error.response.status === 403) {
       localStorage.removeItem('authToken');
       redirectToLogin();
     }

@@ -17,4 +17,6 @@ export interface IRecipe {
   description: string;
   createdAt: string;
   recipeIngredients: IRecipeIngredient[];
+  cookingInstructions: string;
+  imageUrl: string;
 }

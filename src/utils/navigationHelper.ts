@@ -2,6 +2,7 @@ import { createBrowserHistory } from 'history';
 
 export const history = createBrowserHistory();
 
-export function redirectToLogin() {
-  history.push('/');
-}
+export const redirectToLogin = () => {
+  const mainRoute = window.location.href;
+  window.location.href = mainRoute;
+};
