@@ -8,7 +8,7 @@ import {
 } from '@mui/material';
 import { IRecipeResultsProps } from './RecipeResults.types';
 import { IRecipe } from '../../common/types/recipe';
-import { RecipeDetailsModal } from '../RecipeDetailsModal/RecipeDetailsModal';
+import { RecipeDetailsModal } from '../RecipeDetailsModal';
 
 export const RecipeResults: FC<IRecipeResultsProps> = ({ recipes }) => {
   const [selectedRecipe, setSelectedRecipe] = useState<IRecipe | null>(null);
