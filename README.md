@@ -1,20 +1,22 @@
 # Recipe Finder Frontend
 
-This project is the frontend for the Recipe Finder application, a React-based web application that allows users to search for recipes based on the ingredients they have.
+The Recipe Finder is a sophisticated React-based web application that offers a streamlined and interactive experience for culinary enthusiasts and home cooks alike. This user-friendly platform is expertly designed to help users effortlessly discover a plethora of recipes simply by entering the ingredients they have at hand.
 
-## Features
+## Core Functionalities
 
-- Search for recipes by ingredients.
-- Responsive design for desktop and mobile devices.
-- Internationalization with support for multiple languages.
-- Dark and light mode toggling.
-- Using jwt to authenticate users
-- Blocking routes and buttons when the user is not authenticated
-- Redirecting user to login route if token expires
-- Showing 404 page when the specified route does not exist
-- Displaying recipe details
-- Showing recipe images
-- Adding, removing and listing favorite recipes per user
+- **Ingredient-Based Recipe Search**: Enables users to input available ingredients and instantly find matching recipes.
+- **Adaptive Design**: Crafted for optimal viewing across a range of devices, providing a seamless experience on both desktops and mobile screens.
+- **Multilingual Support**: Accommodates a diverse user base with internationalization features, allowing users to navigate the platform in various languages.
+- **Theme Flexibility**: Users can switch between a dark and a light interface, catering to individual preferences and enhancing visual comfort.
+- **Secure User Authentication**: Employs JWT (JSON Web Tokens) to ensure secure user sessions and data interactions.
+- **Access Control**: Implements route and feature restrictions, maintaining exclusive access for authenticated users.
+- **Session Persistence**: Automatically redirects users to the login page when session tokens expire, ensuring uninterrupted service and security.
+- **Error Handling**: Introduces a custom 404 page for non-existent routes, guiding users back to active sections of the site.
+- **Detailed Recipe Insights**: Provides comprehensive recipe details, allowing users to explore cooking instructions, ingredient lists, and more.
+- **Visual Engagement**: Displays vibrant images of recipes, elevating the user's browsing experience.
+- **Personalized Favorites**: Offers functionality for users to add, remove, and review their favorite recipes, creating a tailored recipe collection.
+
+With its robust feature set and intuitive interface, the Recipe Finder stands out as an indispensable tool for anyone looking to spice up their cooking routine with new and exciting recipes.
 
 ## Prerequisites
 
@@ -43,7 +45,6 @@ To run this project successfully, make sure you have the following installed:
 - **ESLint**: The project uses ESLint as a linting utility for JavaScript and TypeScript. It helps in identifying and reporting on patterns found in ECMAScript/JavaScript code, with the goal of making code more consistent and avoiding bugs.
 
 - **Vite**: This is the build tool used for the project. Vite serves code via native ES modules, which makes it extremely fast and efficient compared to older bundling tools.
-
 
 ## Getting Started
 
