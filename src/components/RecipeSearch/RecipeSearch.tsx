@@ -33,6 +33,7 @@ const RecipeSearch: FC<IRecipeSearchProps> = ({ onSearch }) => {
       variant="outlined"
       fullWidth
       value={input}
+      name="enter_ingredients"
       onChange={(e) => setInput(e.target.value)}
       placeholder={t('home.placeholder_ingredients')}
     />
