@@ -4,7 +4,7 @@ import routes from './routes';
 import './common/i18n';
 import { IAppProps } from './App.types';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
-import AppLayout from './containers/AppLayout/AppLayout';
+import AppLayout from './containers/AppLayout';
 
 const App: FC<IAppProps> = ({ Router = BrowserRouter }) => {
   return (

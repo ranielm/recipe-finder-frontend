@@ -19,7 +19,11 @@ export const loginService = async (
     return data;
   } catch (error) {
     if (axios.isAxiosError(error)) {
-      throw new Error(error.response?.data?.message || 'Login failed');
+      console.log(
+        '🚀 ~ file: authService.ts:23 ~ error.response?.data:',
+        error.response?.data
+      );
+      throw new Error(error.response?.data || 'Login failed');
     } else {
       throw new Error('An error occurred during login');
     }

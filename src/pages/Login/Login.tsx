@@ -1,33 +1,18 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { TextField, Button, Typography, Box, Container } from '@mui/material';
+import { TextField, Button, Typography } from '@mui/material';
 import { loginService } from '../../services/authService';
 import { IFormInput } from './Login.types';
 import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
-
-const FullHeightContainer = styled.div`
-  height: 90vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const StyledContainer = styled(Container)`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const FormBox = styled(Box)`
-  margin-top: 8px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
+import {
+  FullHeightContainer,
+  StyledContainer,
+  FormBox,
+} from '../../styles/CommonStyles';
 
 const Login: FC = () => {
   const navigate = useNavigate();
+  const [loginError, setLoginError] = useState('');
 
   const {
     register,
@@ -42,7 +27,9 @@ const Login: FC = () => {
       await loginService(email, password);
       navigate('/home');
     } catch (error) {
-      console.error('Falha no login', error);
+      if (error instanceof Error) {
+        setLoginError(error.message);
+      }
     }
   };
 
@@ -97,6 +84,11 @@ const Login: FC = () => {
           >
             Sign In
           </Button>
+          {loginError && (
+            <Typography color="error" sx={{ mt: 1 }}>
+              {loginError}
+            </Typography>
+          )}
         </FormBox>
       </StyledContainer>
     </FullHeightContainer>

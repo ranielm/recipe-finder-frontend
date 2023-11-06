@@ -7,7 +7,6 @@ export const Header = styled.header`
   box-sizing: border-box;
   display: flex;
   justify-content: flex-end;
-  background-color: #333;
   color: white;
 `;
 
